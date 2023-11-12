@@ -12,7 +12,7 @@ const getAuthHeaders = () => {
     }
 }
 
-const API_ENDPOINTS = {
+const API_ENDPOINTS = { 
     LOGIN: `${BASE_API_URL}/login`,
     REGISTER: `${BASE_API_URL}/register`,
 

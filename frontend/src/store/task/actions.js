@@ -1,4 +1,4 @@
-
+import { createNewTask, getAllTaskList} from '../../services'
 
 
 export const ACTIONS = {
@@ -35,7 +35,7 @@ export const fetchAllTaskList = (dispatch) => {
 
             //// API CALL
             const {data} = await getAllTaskList();
-            console.log(':: fetchAlltasklist ::', data);
+            console.log(':: fetchAllt  asklist ::', data);
 
             //Dispatching actinon for uploading task list
             dispatch(getAllTaskListSuccess(data));
@@ -45,4 +45,17 @@ export const fetchAllTaskList = (dispatch) => {
         }
     }
 }
+
+
+export const addTask = (dispatch) => {
+    return async (newTaskPayload) => {
+        try {
+            //API call
+            const {data} = await createNewTask(newTaskPayload);
+        } catch (error) {
+            const errorMessage = error?.reponse?.data?.errorconsole.log(":: addtask error ::", {error, errorMessage})
+        }
+    }
+}
+
 
