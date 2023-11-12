@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 
 function Register() {
 
@@ -64,4 +64,10 @@ function Register() {
   )
 }
 
-export default Register
+const mapStateToProps = (data) => {
+    return {
+        data
+    }
+}
+
+export default connect(mapStateToProps)(Register)

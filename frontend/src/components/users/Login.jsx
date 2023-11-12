@@ -1,5 +1,7 @@
 
 import React, { createRef } from 'react'
+import { doLogin } from '../../store/user/actions';
+import { connect } from 'react-redux';
 
  class Login extends React.Component {
     constructor(props) {
@@ -63,4 +65,20 @@ import React, { createRef } from 'react'
   }
 }
 
-export default Login
+
+const mapStateToProps = (storeState) => {
+    return {
+        storeState,
+        err: storeState.error
+    }
+}
+
+const mapDispatchActionsToProps = (dispatch) => {
+    return {
+        dispatch,
+        login: doLogin(dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchActionsToProps)(Login)
+// <Login {...prevProps} storeState={{}} error={storeState.error} />
